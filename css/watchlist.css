@@ -1,0 +1,120 @@
+@charset "utf-8";
+@import url(./header.css);
+@import url(./footer.css);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+
+html {
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+body {
+  width: 100%;
+  height: 100%;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: black;
+  background: url(../img/andre-tan-THJJRUhNlEc-unsplash.jpg) no-repeat 50%
+    center/cover;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#list-container {
+  width: 100%;
+  min-height: calc(80vh - 50px);
+  background-color: rgb(14, 14, 14);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 3rem;
+}
+.film-image {
+  width: 70px;
+  height: auto;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  color: rgb(57, 57, 57);
+  margin-bottom: 1.5rem;
+}
+
+.search-result {
+  width: 90%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+.poster img {
+  width: 200px;
+  height: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.movie-info {
+  width: 50%;
+  height: 100%;
+  color: white;
+  font-weight: 300;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 3rem;
+}
+.sub-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 0;
+}
+.title {
+  font-size: 1.5rem;
+  color: white;
+  font-weight: 500;
+}
+
+.minus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+  background-color: #0e0e0e;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.search-page {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.3rem;
+}
+
+hr {
+  width: 60%;
+  height: 1px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 2rem 0;
+}
+
+/* mobile */
+@media only screen and (max-width: 767px) {
+  html {
+    font-size: 0.7rem;
+  }
+}

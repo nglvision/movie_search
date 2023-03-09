@@ -1,0 +1,164 @@
+@charset "utf-8";
+@import url(./header.css);
+@import url(./footer.css);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+
+html {
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+body {
+  font-family: "Inter", sans-serif;
+  background: url(../img/andre-tan-THJJRUhNlEc-unsplash.jpg) no-repeat 50%
+    center/cover fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+#search-form {
+  width: 100%;
+  background-color: rgb(14, 14, 14);
+  display: flex;
+  justify-content: center;
+}
+
+#form {
+  width: 70%;
+  height: 38px;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.search-image {
+  position: absolute;
+  left: 0.8rem;
+  width: 16px;
+  height: 16px;
+}
+
+input {
+  flex: 1 1 75%;
+  height: 100%;
+  border: none;
+  background-color: rgb(46, 46, 47);
+  text-indent: 2.2rem;
+  color: white;
+  outline: none;
+}
+
+button {
+  flex: 1 1 25%;
+  height: 100%;
+  background-color: rgb(75, 75, 75);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.search:active {
+  background-color: rgb(46, 46, 47);
+}
+
+#container {
+  width: 100%;
+  height: calc(80vh - 38px - 50px);
+  background-color: rgb(14, 14, 14);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.explore-image {
+  width: 70px;
+  height: auto;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  color: rgb(57, 57, 57);
+  margin-bottom: 1.5rem;
+}
+.search-result {
+  width: 90%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+.poster img {
+  width: 200px;
+  height: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.movie-info {
+  width: 50%;
+  height: 100%;
+  color: white;
+  font-weight: 300;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 3rem;
+}
+.sub-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 0;
+  position: relative;
+}
+.title {
+  font-size: 1.5rem;
+  color: white;
+  font-weight: 500;
+}
+
+.plus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+  background-color: #0e0e0e;
+  cursor: pointer;
+}
+.plus:active {
+  color: rgba(255, 255, 255, 0.5);
+}
+.plus[title]:active::after {
+  content: attr(title);
+  background-color: rgb(75, 75, 75);
+  padding: 3px 5px;
+  border-radius: 2px;
+  position: absolute;
+  left: 60%;
+  top: 30%;
+  font-size: 0.5rem;
+  color: white;
+}
+
+hr {
+  width: 60%;
+  height: 1px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 2rem 0;
+}
+
+/* mobile */
+@media only screen and (max-width: 767px) {
+  html {
+    font-size: 0.7rem;
+  }
+}
