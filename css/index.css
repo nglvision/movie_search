@@ -33,7 +33,7 @@ body {
 }
 
 #form {
-  width: 70%;
+  width: 60%;
   height: 38px;
   transform: translateY(-50%);
   display: flex;
@@ -93,34 +93,33 @@ h3 {
   margin-bottom: 1.5rem;
 }
 .search-result {
-  width: 90%;
+  width: 100%;
   height: auto;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 .poster img {
-  width: 200px;
-  height: 100%;
+  width: 150px;
   border: 1px solid rgba(255, 255, 255, 0.5);
 }
 .movie-info {
   width: 50%;
-  height: 100%;
   color: white;
   font-weight: 300;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  padding: 3rem;
+  padding: 2rem;
 }
 .sub-info {
   display: flex;
   justify-content: space-between;
-  padding: 2rem 0;
+  padding: 1rem 0;
   position: relative;
 }
 .title {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: white;
   font-weight: 500;
 }
@@ -136,17 +135,6 @@ h3 {
 .plus:active {
   color: rgba(255, 255, 255, 0.5);
 }
-.plus[title]:active::after {
-  content: attr(title);
-  background-color: rgb(75, 75, 75);
-  padding: 3px 5px;
-  border-radius: 2px;
-  position: absolute;
-  left: 60%;
-  top: 30%;
-  font-size: 0.5rem;
-  color: white;
-}
 
 hr {
   width: 60%;
@@ -159,6 +147,9 @@ hr {
 /* mobile */
 @media only screen and (max-width: 767px) {
   html {
+    font-size: 0.7rem;
+  }
+  .plus {
     font-size: 0.7rem;
   }
 }

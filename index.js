@@ -27,7 +27,7 @@ function getMovie(title) {
           <h3 class="title">${title}</h3>
           <div class="sub-info">
             <p>${year}</p>
-            <button title='추가됨' class="plus" onclick='addToList("${poster}", "${title}","${id}",${year})'><img src="./img/plus_icon.svg"/>내 목록에 추가하기</button>
+            <button class="plus" onclick='addToList("${poster}", "${title}","${id}",${year})'><img src="./img/plus_icon.svg"/>내 목록에 추가하기</button>
           </div>
          </div>
         </div>

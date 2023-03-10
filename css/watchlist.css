@@ -62,8 +62,7 @@ h3 {
   justify-content: center;
 }
 .poster img {
-  width: 200px;
-  height: 100%;
+  width: 150px;
   border: 1px solid rgba(255, 255, 255, 0.5);
 }
 .movie-info {
@@ -74,12 +73,12 @@ h3 {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  padding: 3rem;
+  padding: 2rem;
 }
 .sub-info {
   display: flex;
   justify-content: space-between;
-  padding: 2rem 0;
+  padding: 1rem 0;
 }
 .title {
   font-size: 1.5rem;
@@ -115,6 +114,10 @@ hr {
 /* mobile */
 @media only screen and (max-width: 767px) {
   html {
+    font-size: 0.7rem;
+  }
+
+  .minus {
     font-size: 0.7rem;
   }
 }
