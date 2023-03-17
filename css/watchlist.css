@@ -54,7 +54,9 @@ h3 {
   color: rgb(57, 57, 57);
   margin-bottom: 1.5rem;
 }
-
+#to-search:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
 .search-result {
   width: 90%;
   height: auto;
@@ -81,7 +83,7 @@ h3 {
   flex-wrap: wrap;
 }
 .title {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: white;
   font-weight: 500;
 }
@@ -99,12 +101,13 @@ h3 {
   gap: 0.3rem;
   background-color: #0e0e0e;
   color: white;
-  padding: 0.2rem 0.4rem;
+  padding: 0.2rem 0.5rem;
   border-radius: 1rem;
   cursor: pointer;
   transition: all 0.3s;
   margin-top: -0.2rem;
   border: none;
+  font-size: 1rem;
 }
 .minus:hover {
   background-color: rgba(255, 0, 0, 0.5);
