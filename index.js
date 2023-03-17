@@ -3,7 +3,11 @@ const searchInput = document.getElementById("search-input");
 const container = document.getElementById("container");
 const exploreImage = document.querySelector(".explore-image");
 const exploreHeader = document.querySelector(".explore");
+const count = document.getElementById("count");
 let films = JSON.parse(localStorage.getItem("myList")) || [];
+let movieArray = [];
+
+count.textContent = films.length;
 
 function getMovie(title) {
   container.innerHTML = "";
@@ -13,26 +17,44 @@ function getMovie(title) {
     .then(res => res.json())
     .then(data => {
       data.Search.map(item => {
-        if (item.Poster === "N/A") {
-          item.Poster = "./img/no_image.jpg";
-        }
-        const poster = item.Poster;
-        const title = item.Title;
-        const year = item.Year;
-        const id = item.imdbID;
-        container.innerHTML += `
-        <div class="search-result">
-         <div class="poster"><img src="${poster}" alt="poster-image"/></div>
-         <div class="movie-info">
-          <h3 class="title">${title}</h3>
-          <div class="sub-info">
-            <p>${year}</p>
-            <button class="plus" onclick='addToList("${poster}", "${title}","${id}",${year})'><img src="./img/plus_icon.svg"/>내 목록에 추가하기</button>
-          </div>
-         </div>
-        </div>
-        <hr />
-          `;
+        fetch(`http://www.omdbapi.com/?i=${item.imdbID}&apikey=a0be60df`)
+          .then(res => res.json())
+          .then(data => {
+            if (data.Poster === "N/A") {
+              data.Poster = "./img/no_image.jpg";
+            }
+            const poster = data.Poster;
+            const title = data.Title;
+            const year = data.Year;
+            const plot = data.Plot;
+            const id = data.imdbID;
+            // rendering results of search by imdbID
+            container.innerHTML += `
+            <div class="search-result">
+             <div class="poster"><img src="${poster}" alt="poster-image"/></div>
+             <div class="movie-info">
+              <h3 class="title">${title}</h3>
+              <div class="sub-info">
+                <p id="year">${year}</p>
+                <p class="plus" onclick='addToList("${id}")'><img src="./img/plus_icon.svg"/>내 목록에 추가하기</p>
+                <p id="plot">${plot}</p>
+              </div>
+             </div>
+            </div>
+            <hr />
+              `;
+            //constructing movie object
+            const movie = new Movie(
+              data.imdbID,
+              data.Title,
+              data.Poster,
+              data.Year,
+              data.Plot,
+              false
+            );
+            //building movieArray
+            movieArray.push(movie);
+          });
       });
     })
     //if there is no result of another error
@@ -48,21 +70,39 @@ searchBtn.addEventListener("click", e => {
   getMovie(searchInput.value);
 });
 // adding to localStorage
-function addToList(poster, title, id, year) {
-  const obj = {
-    poster,
-    title,
-    id,
-    year,
-  };
+function addToList(id) {
+  //finding the clicked movie
+  const favouriteMovie = movieArray.find(item => item.id === id);
   // check if there is similar saved to localStorage
-  const checkId = films.map(item => item.id).some(itemId => itemId === obj.id);
+  const checkId = films.map(item => item.id).some(itemId => itemId === id);
   if (checkId) {
     return localStorage.setItem("myList", JSON.stringify(films));
   } else {
-    films.push(obj);
+    films.push(favouriteMovie);
+    count.textContent = films.length;
     return localStorage.setItem("myList", JSON.stringify(films));
   }
 }
-//   fetch("http://www.omdbapi.com/?apikey=a0be60df")
-// localStorage.clear();
+
+//movie object constructor
+class Movie {
+  constructor(id, title, poster, year, plot, favourite) {
+    (this.id = id),
+      (this.title = title),
+      (this.poster = poster),
+      (this.year = year),
+      (this.plot = plot);
+    this._favourite = favourite;
+    // this.movieHtml = this.movieHtml.bind(this);
+  }
+  get favourite() {
+    return this._favourite;
+  }
+  set favourite(favourite) {
+    if (favourite) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}

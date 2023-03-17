@@ -62,7 +62,7 @@ h3 {
   justify-content: center;
 }
 .poster img {
-  width: 150px;
+  width: 180px;
   border: 1px solid rgba(255, 255, 255, 0.5);
 }
 .movie-info {
@@ -71,30 +71,47 @@ h3 {
   color: white;
   font-weight: 300;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-direction: column;
-  padding: 2rem;
+  padding: 1.5rem;
 }
 .sub-info {
   display: flex;
   justify-content: space-between;
-  padding: 1rem 0;
+  flex-wrap: wrap;
 }
 .title {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: white;
   font-weight: 500;
 }
 
+#plot {
+  width: 100%;
+  font-size: 0.8rem;
+  padding: 1rem 0;
+}
+
 .minus {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   gap: 0.3rem;
   background-color: #0e0e0e;
   color: white;
-  border: none;
+  padding: 0.2rem 0.4rem;
+  border-radius: 1rem;
   cursor: pointer;
+  transition: all 0.3s;
+  margin-top: -0.2rem;
+  border: none;
+}
+.minus:hover {
+  background-color: rgba(255, 0, 0, 0.5);
+}
+
+.minus:active {
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .search-page {

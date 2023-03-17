@@ -25,6 +25,27 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+#watchlist {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+#count {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: rgba(255, 0, 0, 0.5);
+  border-radius: 50%;
+  position: absolute;
+  top: -20%;
+  left: 100%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: 400;
+}
 #search-form {
   width: 100%;
   background-color: rgb(14, 14, 14);
@@ -74,12 +95,14 @@ button {
 
 #container {
   width: 100%;
+  min-height: calc(80vh - 38px - 50px);
   height: calc(80vh - 38px - 50px);
   background-color: rgb(14, 14, 14);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: 2rem;
 }
 .explore-image {
   width: 70px;
@@ -100,7 +123,7 @@ h3 {
   flex-wrap: wrap;
 }
 .poster img {
-  width: 150px;
+  width: 180px;
   border: 1px solid rgba(255, 255, 255, 0.5);
 }
 .movie-info {
@@ -108,30 +131,44 @@ h3 {
   color: white;
   font-weight: 300;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-direction: column;
-  padding: 2rem;
+  padding: 1.5rem;
 }
 .sub-info {
   display: flex;
   justify-content: space-between;
-  padding: 1rem 0;
-  position: relative;
+  flex-wrap: wrap;
 }
 .title {
   font-size: 1.2rem;
   color: white;
   font-weight: 500;
 }
-
+#year {
+  /* margin: 1rem 0; */
+}
+#plot {
+  width: 100%;
+  font-size: 0.8rem;
+  padding: 1rem 0;
+}
 .plus {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   gap: 0.3rem;
   background-color: #0e0e0e;
+  padding: 0.2rem 0.4rem;
+  border-radius: 1rem;
   cursor: pointer;
+  transition: all 0.3s;
+  margin-top: -0.2rem;
 }
+.plus:hover {
+  background-color: rgba(255, 0, 0, 0.5);
+}
+
 .plus:active {
   color: rgba(255, 255, 255, 0.5);
 }
