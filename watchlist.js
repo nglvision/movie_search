@@ -1,38 +1,39 @@
-const listContainer = document.getElementById("list-container");
-const storageList = JSON.parse(localStorage.getItem("myList"));
+import watchlistHtml from "./utils/watchlistHtml.js";
 
-if (!storageList.length) {
-  listContainer.innerHTML =
-    '<img class="film-image" src="./img/explore.png"/><h3 class="film-list">보고 싶은 영화 목록이 비어있음</h3><a class="search-page" href="../index.html"><img src="./img/plus_icon.svg" />영화 찾아보기</a>';
-} else {
-  listContainer.innerHTML = "";
-  listContainer.style.height = "auto";
-  //renderitn storageList
-  storageList.map(item => {
-    return (listContainer.innerHTML += `
-        <div class="search-result">
-         <div class="poster"><img src="${item.poster}"/></div>
-         <div class="movie-info">
-          <h3 class="title">${item.title}</h3>
-          <div class="sub-info">
-            <p id="year">${item.year}</p>
-            <button class="minus" onclick='removeFromList("${item.id}")' ><img src="./img/minus_icon.svg"/>내 목록에서 지우기</button>
-            <p id="plot">${item.plot}</p>
-            </div>
-         </div>
-        </div>
-        <hr />
-          `);
+const listContainer = document.getElementById("list-container");
+let storageList = JSON.parse(localStorage.getItem("myList"));
+
+function renderStorageList() {
+  if (!storageList || storageList.length === 0) {
+    listContainer.innerHTML =
+      '<img class="film-image" src="./img/explore.png"/><h3 class="film-list">보고 싶은 영화 목록이 비어있음</h3><a class="search-page" href="../index.html"><img src="./img/plus_icon.svg" />영화 찾아보기</a>';
+  } else {
+    listContainer.innerHTML = "";
+    listContainer.style.height = "auto";
+    //rendering storageList
+    storageList.map(item => {
+      return (listContainer.innerHTML += watchlistHtml(item));
+    });
+    addMinusEvent();
+  }
+}
+
+function addMinusEvent() {
+  document.querySelectorAll("#minus").forEach(minus => {
+    addEventListener("click", e => {
+      const targetId = e.target.closest(".sub-info").id;
+      removeFromList(targetId);
+    });
   });
 }
+
 function removeFromList(id) {
-  // deletes from localStorage
-  const getItem = storageList.find(item => item.id === id);
-  const index = storageList.indexOf(getItem);
-  storageList.splice(index, 1);
+  //filtering myList and removing by id
+  if (storageList.length > 0) {
+    storageList = storageList.filter(movie => movie.id !== id);
+  }
   localStorage.setItem("myList", JSON.stringify(storageList));
   //reloads after deleting item
-  location.reload(false);
+  location.reload();
 }
-
-// localStorage.clear();
+renderStorageList();

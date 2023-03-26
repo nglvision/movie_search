@@ -94,7 +94,7 @@ h3 {
   padding: 1rem 0;
 }
 
-.minus {
+#minus {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -109,11 +109,11 @@ h3 {
   border: none;
   font-size: 1rem;
 }
-.minus:hover {
+#minus:hover {
   background-color: rgba(255, 0, 0, 0.5);
 }
 
-.minus:active {
+#minus:active {
   color: rgba(255, 255, 255, 0.5);
 }
 
