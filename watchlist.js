@@ -6,7 +6,7 @@ let storageList = JSON.parse(localStorage.getItem("myList"));
 function renderStorageList() {
   if (!storageList || storageList.length === 0) {
     listContainer.innerHTML =
-      '<img class="film-image" src="./img/explore.png"/><h3 class="film-list">보고 싶은 영화 목록이 비어있음</h3><a class="search-page" href="../index.html"><img src="./img/plus_icon.svg" />영화 찾아보기</a>';
+      '<img class="film-image" src="./img/explore.png"/><h3 class="film-list">보고 싶은 영화 목록이 비어있음</h3><a class="search-page" href="./index.html"><img src="./img/plus_icon.svg" />영화 찾아보기</a>';
   } else {
     listContainer.innerHTML = "";
     listContainer.style.height = "auto";
